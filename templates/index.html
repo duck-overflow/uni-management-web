@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Test</title>
+</head>
+<body>
+    
+    <!--Dont open this directly, please use the flesk renderer -> 127.0.0.1:5000-->
+
+    <h1>Text eingeben und senden</h1>
+    <form id="testForm">
+        <input type="text" id="myText" name="text" placeholder="Input">
+        <button type="button" onclick="submitForm()">Absenden</button>
+    </form>
+
+    <p id="response"></p>
+
+    <!-- Skript am Ende des Body laden -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
