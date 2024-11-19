@@ -6,19 +6,45 @@
     <title>Python Test</title>
 </head>
 <body>
-    
-    <!--Dont open this directly, please use the flesk renderer -> 127.0.0.1:5000-->
+    <!-- Hinweis -->
+    <p id="loginResponse"></p>
 
-    <h1>Text eingeben und senden</h1>
-    <form id="testForm">
-        <input type="text" id="myText" name="text" placeholder="Input">
-        <button type="button" onclick="submitForm()">Absenden</button>
-    </form>
+    <!-- Login Section -->
+    <div>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" name="username" placeholder="Username" required> <br><br>
+            <input type="password" id="loginPassword" name="password" placeholder="Password" required> <br><br>
+            <button type="submit" id="loginButton" disabled>Login</button>
+        </form>
+    </div>
 
-    <p id="response"></p>
+    <br><br>
 
-    <!-- Skript am Ende des Body laden -->
+    <!-- Register Section -->
+    <div>
+        <p id="registerResponse"></p>
+        <h1>Register</h1>
+        <form id="registerForm">
+            <label>Username</label> <br>
+            <input type="text" id="registerUsername" name="username" placeholder="Username" pattern=".{3,16}" required> <br><br>
+            <label>E-Mail</label> <br>
+            <input type="email" id="registerMail" name="registerMail" placeholder="E-Mail" required> <br><br>
+            <label>Confirm E-Mail</label> <br>
+            <input type="email" id="reregisterMail" name="reregisterMail" placeholder="Re-Enter E-Mail" required>
+            <p id="mailerror" style="color: red; display: none;">E-Mails must match!</p> <br><br>
+            <label>Password</label> <br>
+            <input type="password" id="registerPassword" 
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
+            name="password" placeholder="Password" required> <br><br>
+            <label>Confirm Password</label> <br>
+            <input type="password" id="reregisterPassword" name="confirmPassword" placeholder="Re-Enter Password" required>
+            <p id="passworderror" style="color: red; display: none;">Passwords must match!</p> <br><br>
+            <button type="submit" id="registerButton" disabled>Register</button>
+        </form>
+    </div>
+
+    <!-- Skript laden -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-
 </body>
 </html>
